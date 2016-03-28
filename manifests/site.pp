@@ -45,10 +45,11 @@ node default {
   notify { "Hello, my name is ${::hostname}": }
   
   file { '/etc/motd':
+    ensure => file,
     path  => '/etc/motd',
     owner =>  'root',
     group =>  'root',
-    ensure => file,
+    mode  =>  '0644',
     content => 'Today I learned about Travis-CI and the enterprise dashboard',
   }
 }
