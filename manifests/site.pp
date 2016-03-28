@@ -43,10 +43,12 @@ node default {
   # Example:
   #   class { 'my_class': }
   notify { "Hello, my name is ${::hostname}": }
+  
   file { '/etc/motd':
     path  => '/etc/motd',
     owner =>  'root',
     group =>  'root',
     ensure => file,
     content => 'Today I learned about Travis-CI and the enterprise dashboard',
+  }
 }
