@@ -1,4 +1,4 @@
-class site::users {
+class users {
   user {'fundamentals':
     ensure  => present,
   }
