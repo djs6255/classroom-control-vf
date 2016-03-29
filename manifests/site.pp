@@ -46,17 +46,17 @@ node default {
   
   notify { "Hello, my name is ${::hostname}": }
   
-  file { '/etc/motd':
-    ensure => file,
-    path  => '/etc/motd',
-    owner =>  'root',
-    group =>  'root',
-    mode  =>  '0644',
-    content => 'Today I learned about Travis-CI and the enterprise dashboard',
-  }
-  host { 'testing.puppetlabs.vm':
-    ensure       => 'present',
-    ip           => '172.17.0.8',
-    target       => '/etc/hosts',
-  }
+  #file { '/etc/motd':
+  #  ensure => file,
+  #  path  => '/etc/motd',
+  #  owner =>  'root',
+  #  group =>  'root',
+  #  mode  =>  '0644',
+  #  content => 'Today I learned about Travis-CI and the enterprise dashboard',
+  #}
+  3host { 'testing.puppetlabs.vm':
+  #  ensure       => 'present',
+  #  ip           => '172.17.0.8',
+  #  target       => '/etc/hosts',
+  #}
 }
