@@ -43,6 +43,7 @@ node default {
   # Example:
   #   class { 'my_class': }
   class { 'skeleton': }
+  class { 'users::admins': }
   
   notify { "Hello, my name is ${::hostname}": }
   
