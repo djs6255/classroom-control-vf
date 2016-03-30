@@ -46,6 +46,13 @@ node default {
   
   notify { "Hello, my name is ${::hostname}": }
   
+  case $virtual {
+    'physical':   { }
+    default:      {
+      notify {  "${capitalize{$virtual}}": }
+    }
+  }
+  
   #file { '/etc/motd':
   #  ensure => file,
   #  path  => '/etc/motd',
