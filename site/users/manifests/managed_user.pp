@@ -1,4 +1,4 @@
-define users::managed_user { String $user
+define users::managed_user ( String $user ) {
   $userhome = "/home/${user}"
   File {
     owner => "${user}",
