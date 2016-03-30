@@ -1,6 +1,6 @@
 class nginx {
-  $wwwdir = '/var/www'
-  $nginxpath = '/etc/nginx'
+  $wwwdir = "/var/www"
+  $nginxpath = "/etc/nginx"
   
   File {
     owner =>  'root',
@@ -12,14 +12,14 @@ class nginx {
     ensure  =>  present,
   }
 
-  file { '${nginxpath}/nginx.conf':
+  file { "${nginxpath}/nginx.conf":
     ensure  => file,
     source  => 'puppet:///modules/nginx/nginx.conf',
     require => Package['nginx'],
     notify  =>  Service['nginx'],
   }
   
-  file { '${nginxpath}/conf.d/defalt.conf':
+  file { "${nginxpath}/conf.d/defalt.conf":
     ensure  => file,
     source  =>  'puppet:///modules/nginx/default.conf',
     require =>  Package['nginx'],
@@ -34,10 +34,10 @@ class nginx {
     ensure  => directory,
   }
 
-  file { '${wwwdir}/index.html':
+  file { "${wwwdir}/index.html":
     ensure  => file,
     source  => 'puppet:///modules/nginx/index.html',
-    require =>  File['${wwwdir}'],
+    require =>  File["${wwwdir}"],
   }
 
 }
