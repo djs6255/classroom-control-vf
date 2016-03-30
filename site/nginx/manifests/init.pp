@@ -30,7 +30,7 @@ class nginx {
     ensure  =>  running,
   }
   
-  file { '${wwwdir}':
+  file { "${wwwdir}":
     ensure  => directory,
   }
 
