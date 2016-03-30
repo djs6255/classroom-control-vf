@@ -49,7 +49,7 @@ node default {
   case $virtual {
     'physical':   { }
     default:      {
-      notify {  "${capitalize{$::virtual}}": }
+      notify {  "${capitalize{${virtual}}}": }
     }
   }
   
