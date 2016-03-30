@@ -1,19 +1,28 @@
 class nginx {
+  $wwwdir = '/var/www'
+  $nginxpath = '/etc/nginx'
+  $nginxsource = 'puppet:///modules/nginx'
+  
+  File {
+    owner =>  'root',
+    group =>  'root',
+    mode  =>  '0644',
+  }
 
   package { 'nginx':
     ensure  =>  present,
   }
 
-  file { '/etc/nginx/nginx.conf':
+  file { '${nginxpath}/nginx.conf':
     ensure  => file,
-    source  => 'puppet:///modules/nginx/nginx.conf',
+    source  => '${nginxsource}/nginx.conf',
     require => Package['nginx'],
     notify  =>  Service['nginx'],
   }
   
-  file { '/etc/nginx/conf.d/defalt.conf':
+  file { '${nginxpath}/conf.d/defalt.conf':
     ensure  => file,
-    source  =>  'puppet:///modules/nginx/default.conf',
+    source  =>  '${nginxsource}/default.conf',
     require =>  Package['nginx'],
     notify  =>  Service['nginx'],
   }
@@ -22,14 +31,14 @@ class nginx {
     ensure  =>  running,
   }
   
-  file { '/var/www/':
+  file { '${wwwdir}':
     ensure  => directory,
   }
 
-  file { '/var/www/index.html':
+  file { '${wwwdir}/index.html':
     ensure  => file,
-    source  => 'puppet:///modules/nginx/index.html',
-    require =>  File['/var/www'],
+    source  => '${nginxsource}/index.html',
+    require =>  File['${wwwdir}'],
   }
 
 }
