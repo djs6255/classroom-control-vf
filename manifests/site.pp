@@ -49,7 +49,8 @@ node default {
   case $virtual {
     'physical':   { }
     default:      {
-      notify {  "${capitalize{$virtual)": }
+      $vm = capitalize($::virtual)
+      notify { "I'm on a vm of type: ${vm}": }
     }
   }
   
