@@ -1,18 +1,15 @@
 define users::managed_user { String $user
+  $userhome = "/home/${user}"
   File {
     owner => "${user}",
     mode  =>  '0644',
   }
 
-  user { "${user}",
+  user { "${user}":
     ensure  => present,
   }
   
-  file { "/home/${user}":
-    ensure  =>  directory,
-  }
-  
-  file { "/home/${user}/.ssh":
+  file { ["${userhome}","${userhome}/.ssh"]:
     ensure  =>  directory,
   }
 }
