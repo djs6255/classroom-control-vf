@@ -19,7 +19,7 @@ class nginx {
   }
   
   service { 'nginx':
-    ensure  =>  present,
+    ensure  =>  running,
   }
   
   file { '/var/www/':
