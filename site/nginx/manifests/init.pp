@@ -28,7 +28,7 @@ class nginx (
     notify  =>  Service["${srvname}"],
   }
   
-  file { "${srvblkdir}/defalt.conf":
+  file { "${srvblkdir}/default.conf":
     ensure  => file,
     content =>  template('nginx/default.conf.erb'),
     require => Package["${package}"],
