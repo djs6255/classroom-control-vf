@@ -1,7 +1,9 @@
 class profile::wordpress {
   #mysql server
   
-  class { '::mysql::server' : }
+  class { '::mysql::server' : 
+    root_password => 'puppetlabs',
+  }
   
   #wordpress config
   
