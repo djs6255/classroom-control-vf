@@ -8,7 +8,9 @@ class profile::wordpress {
   #wordpress config
   
   #apache host config
-  class { 'apache' : }
+  class { 'apache' : 
+    php_enable => true,  
+  }
   
   #setup config
   class { '::wordpress' :
