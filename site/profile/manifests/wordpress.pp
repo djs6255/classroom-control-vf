@@ -20,7 +20,7 @@ class profile::wordpress {
     wp_group  =>  'wordpress',
     db_user   =>  'wordpress',
     db_password =>  'wordpress',
-    db_host   ->    'localhost'.
+    db_host   =>    'localhost'.
   }
   
   #local user for wordpress
