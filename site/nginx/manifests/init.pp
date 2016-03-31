@@ -1,4 +1,4 @@
-class nginx ( String $root ) {
+class nginx ( String $root = '/var/www' ) {
 
   case $osfamily {
     'RedHat':   {
