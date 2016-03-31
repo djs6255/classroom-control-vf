@@ -49,14 +49,14 @@ class nginx {
 
   file { "${confdir}/nginx.conf":
     ensure  => file,
-    content =>  template('templates/nginx.conf.erb'),
+    content =>  template('nginx/nginx.conf.erb'),
     require => Package["${package}"],
     notify  =>  Service["${srvname}"],
   }
   
   file { "${srvblkdir}/defalt.conf":
     ensure  => file,
-    content =>  template('templates/default.conf.erb'),
+    content =>  template('nginx/default.conf.erb'),
     require => Package["${package}"],
     notify  =>  Service["${srvname}"],
   }
