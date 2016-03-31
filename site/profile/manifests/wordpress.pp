@@ -20,6 +20,7 @@ class profile::wordpress {
     wp_group  =>  'wordpress',
     db_user   =>  'wordpress',
     db_password =>  'wordpress',
+    db_host   ->    'localhost'.
   }
   
   #local user for wordpress
@@ -27,8 +28,8 @@ class profile::wordpress {
     ensure  => present,
   }
   
-  #local grop for wordpress
-  user { 'wordpress':
+  #local group for wordpress
+  group { 'wordpress':
     ensure  => 'present',
   }
 }
