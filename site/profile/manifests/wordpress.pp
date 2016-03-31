@@ -1,7 +1,7 @@
 class profile::wordpress {
   #mysql server
   
-  class { 'mysql' : }
+  class { '::mysql::server' : }
   mysql::db { 'wordpress':
     user  =>  'wordpress',
     password  =>  'wordpress',
