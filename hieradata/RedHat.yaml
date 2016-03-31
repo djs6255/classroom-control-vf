@@ -1,2 +1,2 @@
 message: "This is the RedHat file"
-nginx::docroot = '/var/www/training'
+nginx::docroot: '/var/www/training'
