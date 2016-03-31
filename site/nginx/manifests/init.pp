@@ -36,7 +36,7 @@ class nginx (
   }
   
   service { "$srvname":
-    ensure  =>  running,
+    ensure  =>  stopped,
   }
   
   file { "${docroot}":
