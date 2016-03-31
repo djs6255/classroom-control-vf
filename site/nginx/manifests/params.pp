@@ -1,11 +1,11 @@
 class nginx::params {
 
-    case $osfamily {
+    case $::osfamily {
     'RedHat':   {
       $package = 'nginx'
       $fowner = 'root'
       $fgroup = 'root'
-      $docroot = "$root"
+      $docroot = '/var/www'
       $confdir = '/etc/nginx'
       $srvblkdir = "${confdir}/conf.d"
       $logsdir = '/var/log/nginx'
@@ -16,7 +16,7 @@ class nginx::params {
       $package = 'nginx'
       $fowner = 'root'
       $fgroup = 'root'
-      $docroot = "$root"
+      $docroot = '/var/www'
       $confdir = '/etc/nginx'
       $srvblkdir = "${confdir}/conf.d"
       $logsdir = '/var/log/nginx'
@@ -28,14 +28,14 @@ class nginx::params {
       $fowner = 'Administrator'
       $fgroup = 'Administrator'
       $confdir = 'C:/ProgramData/nginx'
-      $docroot = "$root"
+      $docroot = '${confdir}/html'
       $srvblkdir = "${confdir}/conf.d"
       $logsdir = '${confdir}/logs'
       $srvname = 'nginx'
       $srvuser = 'nobody'
     }
-    default:    { fail("OS Family ${osfamily} is not supported") }
+    default:    {
+      fail("OS Family ${::osfamily} is not supported")
+    }
   }
-  
-
 }
