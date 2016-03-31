@@ -1,11 +1,11 @@
-class nginx {
+class nginx ( String $root ) {
 
   case $osfamily {
     'RedHat':   {
       $package = 'nginx'
       $fowner = 'root'
       $fgroup = 'root'
-      $docroot = '/var/www'
+      $docroot = '$root'
       $confdir = '/etc/nginx'
       $srvblkdir = "${confdir}/conf.d"
       $logsdir = '/var/log/nginx'
@@ -16,7 +16,7 @@ class nginx {
       $package = 'nginx'
       $fowner = 'root'
       $fgroup = 'root'
-      $docroot = '/var/www'
+      $docroot = '$root'
       $confdir = '/etc/nginx'
       $srvblkdir = "${confdir}/conf.d"
       $logsdir = '/var/log/nginx'
@@ -28,7 +28,7 @@ class nginx {
       $fowner = 'Administrator'
       $fgroup = 'Administrator'
       $confdir = 'C:/ProgramData/nginx'
-      $docroot = '${confdir}/html'
+      $docroot = '$root'
       $srvblkdir = "${confdir}/conf.d"
       $logsdir = '${confdir}/logs'
       $srvname = 'nginx'
