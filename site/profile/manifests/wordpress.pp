@@ -1,4 +1,4 @@
-class wordpress {
+class profile::wordpress {
   #mysql server
   
   class { 'mysql' : }
@@ -9,7 +9,7 @@ class wordpress {
   class { 'apache' : }
   
   #setup config
-  class { '::wordpress'  }
+  class { '::wordpress' :  }
   
   #local user for wordpress
   
