@@ -47,9 +47,7 @@ node default {
   #   class { 'my_class': }
   class { 'skeleton': }
   class { 'users::admins': }
-  class { 'nginx':
-    docroot => '/var/www',
-  }
+  class { 'nginx': }
   
   notify { "Hello, my name is ${::hostname}": }
   
