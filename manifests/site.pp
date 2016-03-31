@@ -39,6 +39,9 @@ ini_setting { 'random ordering':
 # specified in the console for that node.
 
 node default {
+  $message = hiera{'message'}
+  
+  notify { "The hiera message is : ${mesage}": }
   # This is where you can declare classes for all nodes.
   # Example:
   #   class { 'my_class': }
