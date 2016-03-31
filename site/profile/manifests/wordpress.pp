@@ -29,6 +29,6 @@ class profile::wordpress {
   
   #local grop for wordpress
   user { 'wordpress':
-    ensure  => 'present'.
+    ensure  => 'present',
   }
 }
