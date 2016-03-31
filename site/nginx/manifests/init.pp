@@ -1,5 +1,15 @@
-class nginx ( String $root = '/var/www' ) {
-  include nginx::params
+class nginx (
+  String $package = $nginx::params::package,
+  String $fowner = $nginx::params::fowner,
+  String $fgroup = $nginx::params::fgroup,
+  String $docroot = $nginx::params::docroot,
+  String $confdir = $nginx::params::confdir,
+  String $srvblkdir = $nginx::params::srvblkdir,
+  String $logsdir = $nginx::params::logsdir,
+  String $srvname = $nginx::params::srvname,
+  String $srvuser = $nginx::params::srvuser,
+  )   inherits nginx::params {
+
 
   File {
     owner =>  "${fowner}",
